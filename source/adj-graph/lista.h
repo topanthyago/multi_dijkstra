@@ -1,20 +1,20 @@
 #ifndef LISTA_INCLUDED
-	#define LISTA_INCLUDED
+#define LISTA_INCLUDED
 
 
 
 typedef struct tupla
 {
-	int vertice;
-	int valor;
+	int vertex;
+	int weight;
 } TIPO;
 
 
 
 
 typedef struct No{
-	TIPO chave;
-	struct No *prox;
+	TIPO value;
+	struct No *next;
 } No;
 
 typedef struct {
@@ -32,14 +32,14 @@ typedef struct {
 
 
 Lista * allocateList();
-int insertStartList(Lista *p_l, TIPO valor);
-int insertMidList(No *p, TIPO valor);
+int insertStartList(Lista *p_l, TIPO value);
+int insertMidList(No *p, TIPO value);
 No* searchInList(Lista *p_l, TIPO ch_busca, No** pred);
-int insertInOrder(Lista *p_l, TIPO valor);
+int insertInOrder(Lista *p_l, TIPO value);
 int removeStartList(Lista *p_l);
 int removeMidList(No* pred);
-int removeItemList(Lista *p_l, TIPO chave_usu);
-void printList(Lista *p_l);
+int removeItemList(Lista *p_l, TIPO value_usu);
+void prprintList(Lista *p_l);
 void freeList(Lista *p_l);
 int removeKthElement(Lista *p_l, int k);
 

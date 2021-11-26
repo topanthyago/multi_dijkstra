@@ -8,15 +8,15 @@
 typedef struct adjacent_list_graph
 {
     Lista ** lista;
-    char * flag; 
-    int qtd_lista;
+    int * flag; 
+    int qtd_lista; 
 }ALGraph;
 
 void cleanFlag(ALGraph * gp);
 
-TIPO makeTuple(int _vertice, int _valor);
+TIPO makeTuple(int _vertex, int _value);
 
-ALGraph *  createGraph(int vertices);
+ALGraph *  createGraph(int vertexes);
 void freeGraph(ALGraph * gp);
 /**
  * @brief 

@@ -5,24 +5,25 @@
 #include <stdio.h>
 
 
-TIPO makeTuple(int _vertice, int _valor)
+TIPO makeTuple(int _vertex, int _value)
 {
 	TIPO tupla;
-	tupla.vertice = _vertice;
+	tupla.vertex = _vertex;
 	
-	tupla.valor = _valor;
+	tupla.weight = _value;
 	return tupla;
 }
 
-ALGraph *  createGraph(int vertices)
+ALGraph *  createGraph(int vertexes)
 {   
     ALGraph * gp = (ALGraph * ) malloc(sizeof(ALGraph));
-    gp->qtd_lista = vertices;
-    gp->lista = (Lista ** ) malloc(sizeof(Lista *) * vertices); 
-    gp->flag = (char *) calloc(sizeof(char), vertices);//flag
-    for (int i=0; i<vertices; i++)
+    gp->qtd_lista = vertexes;
+    gp->lista = (Lista ** ) calloc(sizeof(Lista *), vertexes); 
+    gp->flag = (int *) calloc(sizeof(int), vertexes);//flag
+    for (int i=0; i<vertexes; i++)
     {
         gp->lista[i] = allocateList();
+	//printf("%d:%p\n",i,  gp->lista[i]);
     }
     return gp;
 }
@@ -42,7 +43,7 @@ void freeGraph(ALGraph * gp)
     {
         freeList(gp->lista[i]);
     }
-    free(gp->flag);
+    //free(gp->flag);
     free(gp->lista);
     free(gp);
 }
@@ -72,8 +73,8 @@ void printGraph(ALGraph * gp)
 		aux = gp->lista[i]->inicio;
 		while(aux!=NULL)
 		{
-			printf("w:%d-->v:%d\t",  aux->chave.valor, aux->chave.vertice);
-			aux = aux->prox;
+			printf("w:%d-->v:%d\t",  aux->value.weight, aux->value.vertex);
+			aux = aux->next;
 		}
 		printf("\n");
 	}

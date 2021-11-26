@@ -9,8 +9,8 @@ printf "\n\nDIFF 01:\n"
 diff -u out/01.out out/_01.out
 
 
-#printf "\n\nDIFF 02:\n"
-#diff -u out/02.out out/_02.out
+printf "\n\nDIFF 02:\n"
+diff -u out/02.out out/_02.out
 
-#printf "\n\nDIFF 03:\n"
-#diff -u out/03.out out/_03.out
+printf "\n\nDIFF 03:\n"
+diff -u out/03.out out/_03.out
